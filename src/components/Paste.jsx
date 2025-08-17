@@ -125,40 +125,37 @@ const Paste = () => {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
 
-      {/* pastes list */}
       <div className="flex flex-col gap-5">
         {filterData.length > 0 &&
           filterData.map((paste, i) => {
             return (
               <div className="border-2 mt-2 rounded-2xl p-4" key={i}>
-                {/* paste title */}
+
                 {paste.title !== '' ? (
                   <h2 className="text-lg font-bold mb-2">{paste?.title}</h2>
                 ) : null}
 
-                {/* paste content */}
                 <div className="mb-2">{paste?.content}</div>
 
-                {/* action buttons */}
                 <div className="flex justify-evenly gap-2 mt-3">
-                  {/* edit */}
+
                   <button className="px-3 py-1 bg-blue-500 text-white rounded-lg">
                     <a href={`/?pasteId=${paste?._id}`}>Edit</a>
                   </button>
 
-                  {/* view (fixed to use query param viewId) */}
                   <button className="px-3 py-1 bg-green-500 text-white rounded-lg">
                     <a href={`/?viewId=${paste?._id}`} target="_blank" rel="noopener noreferrer">
                       View
                     </a>
                   </button>
 
-                  {/* delete */}
                   <button
                     onClick={() => handleDelete(paste?._id)}
                     className="px-3 py-1 bg-red-500 text-white rounded-lg"
                   >
-                    Delete
+                    <a href={`/?viewId=${paste?._id}`} target="_blank" rel="noopener noreferrer">
+                      View
+                    </a>
                   </button>
 
                   {/* copy */}
