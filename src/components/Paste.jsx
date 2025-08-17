@@ -44,7 +44,7 @@ const Paste = () => {
 
                 <div className='flex justify-evenly'>
                   <button>
-                    <a href={`/?pasteId=${paste?._id}`}>
+                    <a href={`/?pasteId=${paste?._id}`} target="_blank">
                       Edit
                     </a>
                   </button>
