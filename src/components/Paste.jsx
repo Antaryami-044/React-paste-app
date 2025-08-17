@@ -50,7 +50,7 @@ const Paste = () => {
                   </button>
 
                   <button>
-                    <a href={`/pastes/${paste?._id}`}>
+                    <a href={`/pastes/${paste?._id}`} target="_blank">
                       View
                     </a>
                   </button>
