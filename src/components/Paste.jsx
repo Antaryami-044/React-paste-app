@@ -36,10 +36,10 @@ const Paste = () => {
           filterData.map((paste, i) => {
             return (
               <div className='border-2 mt-2 rounded-2xl' key={i}>
-                {paste.title !== "" ? <h2>{paste.title}</h2> : null}
+                {paste.title !== "" ? <h2>{paste?.title}</h2> : null}
 
                 <div>
-                  {paste.content}
+                  {paste?.content}
                 </div>
 
                 <div className='flex justify-evenly'>
@@ -67,7 +67,9 @@ const Paste = () => {
                     Copy
                   </button>
 
-                  <button>
+                  <button
+                    onClick={() => toast.error("Not working")}
+                  >
                     Share
                   </button>
                 </div>

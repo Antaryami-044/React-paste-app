@@ -14,9 +14,17 @@ export const pasteSlice = createSlice({
       reducers: {
             addToPastes: (state, action) => {
                   const paste = action.payload;
+                  const index = state.pastes.findIndex((item) => item._id === paste._id)
+
+                  if (index >= 0) {
+                  // If the course is already in the Pastes, do not modify the quantity
+                        toast.error("Paste already exist")
+                        return
+                  }
+
                   state.pastes.push(paste);
                   localStorage.setItem("pastes", JSON.stringify(state.pastes));
-                  toast("Paste created successfully");
+                  toast.success("Paste created successfully");
             },
             updateToPastes: (state, action) => {
                   const paste = action.payload;
@@ -51,23 +59,6 @@ export const pasteSlice = createSlice({
                   const pasteId = [];
                   localStorage.setItem("pastes");
             },
-            // removeFromPastes: (state, action) => {
-            //       const pasteId = action.payload;
-            //       console.log(pasteId);
-
-            //       const index = state.pastes.findIndex( (item) =>
-            //       item._id === String(pasteId));
-
-            //       if(index >= 0) {
-            //             state.pastes.splice(index, 1);
-
-            //             localStorage.setItem("pastes", JSON.stringify(state.pastes));
-
-            //             toast.success("Paste deleted");
-            //       } else {
-            //             toast.error("Paste not found");
-            //       }
-            // }
       }
 })
 
