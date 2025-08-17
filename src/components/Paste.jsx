@@ -67,13 +67,13 @@ const Paste = () => {
                     onClick={() => {navigator.clipboard.writeText(paste?.content)
                       toast.success("Copied to clipboard")
                     }}>
-                    Copy
+                    <a>Copy</a>
                   </button>
 
                   <button
                     onClick={() => toast.error("Not working")}
                   >
-                    Share
+                    <a>Share</a>
                   </button>
                 </div>
 
