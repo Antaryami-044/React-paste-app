@@ -50,8 +50,7 @@ const Paste = () => {
                   </button>
 
                   <button>
-                    {/* <a href={`/pastes/${paste?._id}`} target="_blank"> */}
-                    <a href={`/?viewId=${paste?._id}`} target="_blank" rel="noopener noreferrer">
+                    <a href={`/pastes/${paste?._id}`} target="_blank" onClick={() => toast.error("only working in Terminal")}>
                       View
                     </a>
                   </button>

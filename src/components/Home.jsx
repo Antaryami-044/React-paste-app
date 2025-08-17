@@ -11,15 +11,6 @@ const Home = () => {
   const pasteId = searchParams.get("pasteId");
   const dispatch = useDispatch();
   const allPastes = useSelector((state) => state.paste.pastes);
-  
-  useEffect(() => {
-    if(pasteId) {
-      const paste = allPastes.find((p) => p._id === pasteId);
-      setTitle(paste.title);
-      setValue(paste.content);
-    }
-
-  }, [pasteId])
 
   function createPaste() {
     const paste = {
@@ -40,6 +31,24 @@ const Home = () => {
     setSearchParams({});
   }
 
+  const resetPaste = () => {
+    setTitle("");
+    setValue("");
+    setSearchParams({});
+    // navigate("/");
+  };
+
+  useEffect(() => {
+    if(pasteId) {
+      const paste = allPastes.find((p) => p._id === pasteId);
+      if(paste) {
+        setTitle(paste.title);
+        setValue(paste.content);
+      }
+    }
+
+  }, [pasteId]);
+
   return (
     <div>
       <div className='flex flex-row gap-7 place-content-between'>
@@ -56,6 +65,13 @@ const Home = () => {
             pasteId ? "Update My Paste" : "Create My Paste"
           }
         </button>
+
+        {pasteId &&  <button
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700"
+            onClick={resetPaste}
+          >
+            <PlusCircle size={20} />
+          </button>}
 
       </div>
 
