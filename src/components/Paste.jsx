@@ -44,12 +44,12 @@ const Paste = () => {
 
                 <div className='flex justify-evenly'>
                   <button>
-                    {/* <a href={`/?pasteId=${paste?._id}`} target="_blank">
+                    <a href={`/?pasteId=${paste?._id}`} target="_blank">
                       Edit
-                    </a> */}
-                    <a href={`/?pasteId=${paste?._id}`} target="_blank" rel="noopener noreferrer">
-                      View
                     </a>
+                    {/* <a href={`/?pasteId=${paste?._id}`} target="_blank" rel="noopener noreferrer">
+                      View
+                    </a> */}
                   </button>
 
                   <button>
@@ -60,7 +60,7 @@ const Paste = () => {
                   </button>
 
                   <button onClick={() => handleDelete(paste?._id)}>
-                    Delete
+                    <a>Delete</a>
                   </button>
 
                   <button 
